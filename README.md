@@ -44,3 +44,5 @@ ________________________
 [百度](http:://www.baidu.com)
 
 ![葫芦娃](http://img5.imgtn.bdimg.com/it/u=2520536666,1269032613&fm=23&gp=0.jpg)
+
+'ctrl + a'
