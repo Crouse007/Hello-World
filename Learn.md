@@ -1,4 +1,16 @@
 # Shell
+##### 从文件中读取数据
+    #!/bin/bash
+    # reading data from a file
+
+    count=1
+    cat test | while read line
+    do
+        echo "Line $count: $line"
+        count=$[ $count + 1 ]
+    done
+    echo "Finished processing the file"
+****
 ##### 反引号的使用
     #!/bin/bash
     #using the backtick character
@@ -64,3 +76,21 @@
         count=$[ $count + 1 ]
     done
  *****
+##### 移除捕捉
+    #!/bin/bash
+
+    # removeing a set trap
+
+    trap "echo byebye" EXIT
+
+    count=1
+    while [ $count -le 5 ]
+    do
+        echo "Loop #$count"
+        sleep 3
+        count=$[ $count + 1 ]
+    done
+    #移除捕捉
+    trap - EXIT
+    echo "I just removed the trap"
+****
