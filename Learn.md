@@ -92,6 +92,6 @@
     done
     #移除捕捉
     trap - EXIT
-    echo "I just removed the trap"
+    echo "I just removed the trap"
     
 ****
