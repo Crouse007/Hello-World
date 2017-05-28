@@ -23,7 +23,7 @@
     # testing the at command
 
     at -f 4.sh 22:10
- 
+****
 ##### 捕捉信号
 |信号值|符号|行为|    |
 |-----|----|----|----|
@@ -48,3 +48,19 @@
         sleep 5
         count=$[ $count+1 ]
     done
+****
+##### 捕捉脚本的退出
+    #!/bin/bash
+
+    # trapping the script exit
+
+    trap "echo byebye" EXIT
+
+    count=1
+    while [ $count -le 5 ]
+    do
+        echo "Loop #$count"
+        sleep 3
+        count=$[ $count + 1 ]
+    done
+ *****
