@@ -8,7 +8,8 @@
 >>> 嵌套？？
 >>>> 嵌套
 
- void main() {
-     printf("hello world");
- }
+
+    void main() {
+        printf("hello world");
+    }
   
