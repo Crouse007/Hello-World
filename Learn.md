@@ -12,10 +12,9 @@
     echo "Finished processing the file"
 ****
 ##### 使用getopts
-> 1. getopts的使用形式是：getopts option_string variable 
-> 2. 选项之间可以通过冒号:进行分隔，也可以直接相连接，：表示选项后面必须带有参数，如果没有可以不加实际值进行传递
-> 3. 例如：getopts ahfvc: option表明选项a、h、f、v可以不加实际值进行传递，而选项c必须取值。使用选项取值时，必须使用变量OPTARG保存该值。
-  
+> getopts的使用形式是：getopts option_string variable 
+> 选项之间可以通过冒号:进行分隔，也可以直接相连接，：表示选项后面必须带有参数，如果没有可以不加实际值进行传递
+> 例如：getopts ahfvc: option表明选项a、h、f、v可以不加实际值进行传递，而选项c必须取值。使用选项取值时，必须使用变量OPTARG保存该值。
     #!/bin/bash
     # simple demonstration of the getopts command
 
