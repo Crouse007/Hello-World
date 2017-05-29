@@ -47,4 +47,4 @@ ________________________
 
 `ctrl + a`
  
- <font color=red> adasdfad </font>
+ <font color=red><span> adasdfad</span> </font>
