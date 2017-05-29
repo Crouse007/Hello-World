@@ -1,4 +1,20 @@
 # Shell
+
+##### 结构化命令\错误的使用大于小于号
+> 大于小于号必须转义，否则shell会将它们当做重定向符号而把字符串值当做文件名处理
+> 大于小于号顺序和sort命令所采用的有所不同
+
+		#!/bin/bash
+		val1=baseball
+		val2=hockey
+
+		if [ $val1 > $val2 ]
+		then
+			echo "$val1 is greater than $val2"
+		else
+			echo "$val1 is less than $val2"
+		fi
+****
 ##### 从文件中读取数据
     #!/bin/bash
     # reading data from a file
@@ -12,9 +28,10 @@
     echo "Finished processing the file"
 ****
 ##### 使用getopts
-> getopts的使用形式是：getopts option_string variable 
-> 选项之间可以通过冒号:进行分隔，也可以直接相连接，：表示选项后面必须带有参数，如果没有可以不加实际值进行传递
-> 例如：getopts ahfvc: option表明选项a、h、f、v可以不加实际值进行传递，而选项c必须取值。使用选项取值时，必须使用变量OPTARG保存该值。
+> ：表示选项后面必须带有参数
+> 例如：getopts ahfvc: option表明选项a、h、f、v可以不加实际值进行传递，而选项c必须取值。
+> 使用选项取值时，必须使用变量OPTARG保存该值。
+> OPTIND，反映下一个要处理的参数索引，初值是 1，每次执行 getopts 时都会更新
     #!/bin/bash
     # simple demonstration of the getopts command
 
