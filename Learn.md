@@ -1,20 +1,4 @@
 # Shell
-##### 结构化命令\错误的使用大于小于号
-> 大于小于号必须转义，否则shell会将它们当做重定向符号而把字符串值当做文件名处理
-> 大于小于号顺序和sort命令所采用的有所不同
-
-		#!/bin/bash
-		val1=baseball
-		val2=hockey
-
-		if [ $val1 > $val2 ]
-		then
-			echo "$val1 is greater than $val2"
-		else
-			echo "$val1 is less than $val2"
-		fi
-****
-
 ##### 从文件中读取数据
     #!/bin/bash
     # reading data from a file
@@ -28,64 +12,22 @@
     echo "Finished processing the file"
 ****
 ##### 使用getopts
-> ：表示选项后面必须带有参数
-> 例如：getopts ahfvc: option表明选项a、h、f、v可以不加实际值进行传递，而选项c必须取值。
-> 使用选项取值时，必须使用变量OPTARG保存该值。
-> OPTIND，反映下一个要处理的参数索引，初值是 1，每次执行 getopts 时都会更新。
+> getopts的使用形式是：getopts option_string variable 
+> 选项之间可以通过冒号:进行分隔，也可以直接相连接，：表示选项后面必须带有参数，如果没有可以不加实际值进行传递
+> 例如：getopts ahfvc: option表明选项a、h、f、v可以不加实际值进行传递，而选项c必须取值。使用选项取值时，必须使用变量OPTARG保存该值。
+    #!/bin/bash
+    # simple demonstration of the getopts command
 
-		#!/bin/bash
-		while getopts h:ms option
-		do 
-		    case "$option" in
-		        h)
-		            echo "option:h, value $OPTARG"
-		            echo "next arg index:$OPTIND";;
-		        m)
-		            echo "option:m"
-		            echo "next arg index:$OPTIND";;
-		        s)
-		            echo "option:s"
-		            echo "next arg index:$OPTIND";;
-		        \?)
-		            echo "Usage: args [-h n] [-m] [-s]"
-		            echo "-h means hours"
-		            echo "-m means minutes"
-		            echo "-s means seconds"
-		            exit 1;;
-		    esac
-		done
-
-		echo "*** do something now ***"
-		
+    while getopts :ab:c opt
+    do
+        case "$opt" in
+        a) echo "Found the -a option";;
+        b) echo "Found the -b option, with value $OPTARG";;
+        c) echo "Found the -c option";;
+        *) echo "Unknown option:$opt";;
+        esac
+    done
 ****
-
-##### 使用getopts处理选项和参数
-> ./a.sh -a -b 100 -c -d 100 200 300
-> shift 3 前3个参数被销毁
-
-	#!/bin/bash
-	# processing options and parameters with getopts
-
-	while getopts :ab:cd opt
-	do
-		case "$opt" in
-		a) echo "Found the -a option";;
-		b) echo "Found the -b option,with value $OPTARG";;
-		c) echo "Found the -c option";;
-		d) echo "Found the -d option";;
-		*) echo "Unknown option: $opt";;
-		esac
-	done
-	shift $[ $OPTIND - 1 ]
-	count=1
-	for param in "$@"
-	do
-		echo "Parameter $count: $param"
-		count=$[ $count + 1 ]
-	done
-	
-****
-
 ##### 反引号的使用
     #!/bin/bash
     #using the backtick character
