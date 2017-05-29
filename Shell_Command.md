@@ -98,7 +98,7 @@
 #str1 > str2		大于          
 #-n str			长度是否不为0         
 #-z str			长度是否为0     
-****
+>
 >> **文件比较**      
 #-a file		存在       
 #-b file		存在并是块设备文件        
@@ -123,7 +123,7 @@
 #-N file		存在并在上次读取后被修改过*备份要用*           
 #file1 -nt file2	file1比file2新，可用于备份文件         
 #file2 -ot file2	file1比file旧    
-****
+
 >> **bash选项状态**     
 #-o set 选项名称	选项开启(选项开启时为真)           
 ****
